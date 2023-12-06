@@ -82,7 +82,10 @@ DATABASES = {
         "HOST": os.getenv("DB_HOST"),
         "PORT": os.getenv("DB_PORT"),
         # use global.pem for aws rds
-        "OPTIONS": {"sslmode": "verify-full", "sslrootcert": "global-bundle.pem"},
+        "OPTIONS": {
+            "sslmode": "verify-full",
+            "sslrootcert": os.path.join(BASE_DIR, "global-bundle.pem"),
+        },
     }
 }
 
